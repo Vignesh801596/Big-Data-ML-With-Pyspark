@@ -1,46 +1,19 @@
-BIG DATA & ML ANALYTICS
-
-PROJECT DOCUMENTATION
-
----
-
-1. PROJECT TITLE
-
 Big Data & ML Analytics
 
----
+A web-based Big Data and Machine Learning analytics application built with React, TypeScript, TanStack Start, Vite, and Tailwind CSS.
 
-2. PROJECT OVERVIEW
+The application lets users upload CSV datasets, inspect and validate the data, perform data cleaning and analysis, train a Random Forest classification model, evaluate model performance, and view prediction/results history.
 
-Big Data & ML Analytics is a web-based application designed for data processing, data analysis, visualization, and machine learning.
+«Note: The project implements a Spark/MLlib-style machine-learning pipeline in TypeScript for local/server-side execution. It does not require a separate Apache Spark cluster.»
 
-The application allows users to upload CSV datasets, inspect and validate data, perform data cleaning and analysis, train a Random Forest classification model, evaluate model performance, and view prediction results.
-
----
-
-3. OBJECTIVES
-
-The main objectives of the project are:
-
-1. To provide a platform for uploading and processing CSV datasets.
-2. To perform dataset validation and data cleaning.
-3. To analyze numerical and categorical data.
-4. To prepare features for machine learning.
-5. To train a Random Forest classification model.
-6. To evaluate machine learning model performance.
-7. To display prediction and feature-importance results.
-8. To provide an interactive analytics dashboard.
-
----
-
-4. FEATURES
+Features
 
 - CSV dataset upload and parsing
 - Dataset schema detection and profiling
 - Data preview and validation
 - Missing-value detection and handling
 - Duplicate and outlier analysis
-- Numerical and categorical feature analysis
+- Numeric and categorical feature analysis
 - Target-column selection
 - Feature preparation and encoding
 - 80/20 train-test split
@@ -51,213 +24,119 @@ The main objectives of the project are:
 - Analysis history
 - Responsive analytics dashboard
 
----
+Machine Learning Pipeline
 
-5. TECHNOLOGY USED
+The project follows this general workflow:
 
-Frontend Technologies
+CSV Dataset
+    ↓
+Data Loading & Parsing
+    ↓
+Schema Inference
+    ↓
+Data Validation
+    ↓
+Data Cleaning
+    ↓
+Feature Preparation
+    ↓
+Train/Test Split
+    ↓
+Random Forest Classifier
+    ↓
+Prediction
+    ↓
+Model Evaluation
+    ↓
+Analytics & Results
+
+Random Forest
+
+The project contains a custom Random Forest implementation using:
+
+- CART-style decision trees
+- Gini impurity
+- Bootstrap sampling (bagging)
+- Random feature selection at each split
+- Configurable tree count and maximum depth
+- Deterministic random seed for reproducible results
+- Feature-importance calculation
+
+Technology Stack
 
 - React 19
 - TypeScript
-- TanStack Start
-- TanStack Router
+- TanStack Start / TanStack Router
 - Vite
 - Tailwind CSS
-
-UI and Visualization
-
 - Recharts
 - Radix UI
 - Lucide React
-
-Data Processing and Validation
-
 - Zod
-- CSV Processing
-
-Runtime
-
 - Node.js
 
-Machine Learning
-
-- Random Forest
-- Decision Trees
-- Gini Impurity
-- Bootstrap Sampling
-- Random Feature Selection
-- Feature Importance
-
----
-
-6. MACHINE LEARNING WORKFLOW
-
-The project follows the following machine learning workflow:
-
-CSV Dataset
-      ↓
-Data Loading & Parsing
-      ↓
-Schema Inference
-      ↓
-Data Validation
-      ↓
-Data Cleaning
-      ↓
-Feature Preparation
-      ↓
-Train/Test Split
-      ↓
-Random Forest Classifier
-      ↓
-Prediction
-      ↓
-Model Evaluation
-      ↓
-Analytics & Results
-
----
-
-7. RANDOM FOREST CLASSIFICATION
-
-The project uses a Random Forest classification approach.
-
-The implementation includes:
-
-1. CART-style decision trees.
-2. Gini impurity.
-3. Bootstrap sampling.
-4. Random feature selection at each split.
-5. Configurable tree count and maximum depth.
-6. Deterministic random seed for reproducible results.
-7. Feature-importance calculation.
-
----
-
-8. DATASET REQUIREMENTS
-
-For machine learning training, the CSV dataset should contain:
-
-1. A header row.
-2. At least 20 data rows.
-3. A suitable target column.
-4. At least two target classes for classification.
-5. Feature columns with useful variation.
-
-The application performs validation before training and identifies issues such as:
-
-- Missing values
-- Duplicate columns
-- Invalid numerical values
-- Constant columns
-- Outliers
-
----
-
-9. MODEL EVALUATION
-
-The application provides machine learning evaluation results such as:
-
-- Accuracy
-- Precision
-- Recall
-- F1 Score
-- Confusion Matrix
-- Feature Importance
-- Prediction Results
-
----
-
-10. APPLICATION WORKFLOW
-
-1. Open the application.
-2. Upload a CSV dataset.
-3. Review the detected columns.
-4. Check the validation results.
-5. Perform data processing and analysis.
-6. Select a suitable target column.
-7. Open the ML Analysis section.
-8. Start model training.
-9. Review the model evaluation metrics.
-10. Inspect predictions and feature importance.
-11. View previous analyses from the History section.
-
----
-
-11. PROJECT STRUCTURE
+Project Structure
 
 bigdata-ml-analytics/
-│
 ├── public/
 │   ├── sample_customer_churn.csv
 │   └── ...
-│
 ├── src/
 │   ├── components/
 │   ├── hooks/
-│   │
 │   ├── lib/
 │   │   └── ml/
 │   │       ├── csv.ts
 │   │       ├── metrics.ts
 │   │       ├── pipeline.ts
 │   │       └── random-forest.ts
-│   │
 │   ├── routes/
 │   │   ├── data-processing.tsx
 │   │   ├── dataset-analysis.tsx
 │   │   ├── history.tsx
 │   │   ├── ml-analysis.tsx
 │   │   └── results.tsx
-│   │
 │   └── ...
-│
 ├── package.json
 ├── tsconfig.json
 ├── vite.config.ts
 └── README.md
 
----
-
-12. INSTALLATION
+Getting Started
 
 Prerequisites
 
-The following software is required:
+Install:
 
 - Node.js
 - npm
 
-Check the installed versions:
+Check your installation:
 
 node --version
 npm --version
 
-Installation Steps
+Installation
 
-Step 1: Clone the Repository
+Clone the repository:
 
 git clone <YOUR-GITHUB-REPOSITORY-URL>
 
-Step 2: Open the Project
+Open the project folder:
 
 cd bigdata-ml-analytics
 
-Step 3: Install Dependencies
+Install dependencies:
 
 npm install
 
-Step 4: Start the Development Server
+Run the Development Server
 
 npm run dev
 
-Open the local URL displayed in the terminal.
+Then open the local URL shown in the terminal.
 
----
-
-13. PRODUCTION BUILD
-
-To create a production build:
+Build for Production
 
 npm run build
 
@@ -265,65 +144,98 @@ To preview the production build:
 
 npm run preview
 
----
+Code Quality
 
-14. SAMPLE DATASET
+Run ESLint:
 
-A sample customer-churn dataset is included in:
+npm run lint
+
+Format the project:
+
+npm run format
+
+Using the Application
+
+1. Open the application.
+2. Go to Data Processing.
+3. Upload a CSV dataset.
+4. Review the detected columns and validation results.
+5. Continue to dataset analysis.
+6. Select a suitable target column for classification.
+7. Open ML Analysis.
+8. Start model training.
+9. Review accuracy and other evaluation metrics.
+10. Inspect predictions and feature importance in Results.
+11. Use History to review previous analyses when available.
+
+A sample customer-churn dataset is included at:
 
 public/sample_customer_churn.csv
 
-This dataset can be used to test the data processing and machine learning features of the application.
+Dataset Requirements
 
----
+For ML training, use a CSV dataset with:
 
-15. BIG DATA PROCESSING
+- A header row
+- At least 20 data rows
+- A suitable target column
+- At least two target classes for classification
+- Feature columns with useful variation
 
-The project demonstrates concepts related to:
+The application performs validation before training and reports issues such as missing values, duplicate columns, invalid numeric values, constant columns, and outliers.
 
-- Big Data Analytics
-- Data Processing
-- Data Cleaning
-- Data Visualization
-- Feature Engineering
-- Machine Learning
-- Predictive Analytics
+Important Note About Large Datasets
 
-The ML pipeline has a training-row limit of 20,000 rows ("MAX_TRAINING_ROWS") to keep processing practical.
+The ML pipeline has a training-row limit of 20,000 rows ("MAX_TRAINING_ROWS") to keep browser/server-side processing practical.
 
-For extremely large datasets, distributed processing technologies such as Apache Spark would normally be appropriate.
+For very large Big Data workloads, a distributed system such as Apache Spark would normally be more appropriate.
 
----
+Limitations
 
-16. FUTURE ENHANCEMENTS
+The current version of the project has the following limitations:
 
-The following features can be added in future versions:
+1. Dataset Size Limitation
+   The machine learning pipeline supports a maximum of 20,000 training rows ("MAX_TRAINING_ROWS") to maintain practical processing performance.
 
-1. Apache Spark integration.
-2. Distributed dataset processing.
-3. Additional machine learning algorithms.
-4. Regression models.
-5. Deep learning models.
-6. Automated Machine Learning.
-7. Real-time analytics.
-8. Cloud-based processing.
-9. Advanced data visualization.
-10. Support for larger datasets.
+2. CSV Format Limitation
+   The application primarily supports datasets provided in CSV format.
 
----
+3. Classification Limitation
+   The current machine learning implementation focuses on classification problems using Random Forest. Regression and other advanced machine learning tasks are not currently supported.
 
-17. PROJECT OUTCOME
+4. Local Processing
+   Data processing and machine learning operations are performed locally rather than through a distributed computing cluster.
 
-The project provides an integrated platform for Big Data Analytics and Machine Learning, allowing users to process datasets, analyze data, train predictive models, evaluate model performance, and visualize analytical results through a web-based interface.
+5. No Apache Spark Cluster
+   Although the project follows a Spark/MLlib-style machine learning workflow, it does not currently connect to or execute jobs on an actual Apache Spark cluster.
 
----
+6. Large Dataset Performance
+   Very large datasets may require significant memory and processing resources. Distributed technologies such as Apache Spark would be more suitable for large-scale Big Data processing.
 
-18. AUTHOR
+7. Limited Machine Learning Algorithms
+   The current implementation primarily provides Random Forest classification. Other algorithms are not included in the present version.
 
-Your Name
+8. Data Quality Dependency
+   The quality of the machine learning results depends on the quality, completeness, and suitability of the uploaded dataset.
 
----
+9. No Real-Time Data Processing
+   The current application is designed for uploaded datasets and does not provide continuous real-time data streaming or real-time analytics.
 
-19. ACKNOWLEDGEMENT
+10. No Cloud-Based Distributed Processing
+    The current version does not include cloud-based distributed processing or large-scale data storage integration.
 
-This project uses open-source technologies and libraries from the React, TanStack, Vite, Tailwind CSS, Radix UI, Recharts, and related ecosystems.
+License
+
+This project is released under the MIT License. See the "LICENSE" (LICENSE) file for details.
+
+Third-party libraries included in this project remain subject to their respective licenses.
+
+Author
+
+Intern ID: CITS9005
+
+Organization: CodeTech IT Solutions
+
+Acknowledgements
+
+This project uses open-source libraries from the React, TanStack, Vite, Tailwind CSS, Radix UI, Recharts, and related ecosystems.
